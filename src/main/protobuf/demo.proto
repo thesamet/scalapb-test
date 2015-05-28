@@ -1,0 +1,12 @@
+import "scalapb/scalapb.proto";
+
+option java_package = "com.example.java.protos";
+
+option (scalapb.options) = {
+  package_name: "com.example.scala.protos";
+  flat_package: true;
+};
+
+message Hello {
+  optional int32 a = 1;
+}
