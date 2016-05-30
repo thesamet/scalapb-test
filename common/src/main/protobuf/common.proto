@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+package common;
+
+message CommonMessage {
+  optional int32 common_number = 1;
+}
