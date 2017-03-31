@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package com.ctt;
+
+message TimeUnit { }
+
+message Duration {
+  required int64 amount = 1;
+  required TimeUnit unit = 2;
+}
+
