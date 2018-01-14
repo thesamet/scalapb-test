@@ -23,3 +23,13 @@ message HelloRequest {
 message HelloReply {
   string message = 1;
 }
+
+enum PbUnits {
+    //default unit
+    NoUnits = 0;
+
+    // SI units
+    angstrom    = 1;
+    arcmin      = 2;
+    arcsec      = 3;
+ }

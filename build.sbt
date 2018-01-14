@@ -1,12 +1,11 @@
-scalaVersion := "2.12.1"
+scalaVersion := "2.11.7"
 
-scalaOrganization in ThisBuild := "org.typelevel"
-
-scalacOptions += "-Xfatal-warnings"
+scalacOptions in ThisBuild ++= Seq("-Xfatal-warnings", "-Xlint")
 
 PB.targets in Compile := Seq(
-  scalapb.gen(singleLineToString = true) -> (sourceManaged in Compile).value
+  PB.gens.java -> (sourceManaged in Compile).value,
+  scalapb.gen(singleLineToString = true, javaConversions=true) -> (sourceManaged in Compile).value
 )
 
-libraryDependencies += "com.trueaccord.scalapb" %% "scalapb-runtime-grpc" % "0.5.47"
+libraryDependencies += "com.trueaccord.scalapb" %% "scalapb-runtime-grpc" % "0.6.7"
 
