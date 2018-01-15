@@ -6,30 +6,3 @@ message Hello {
   int32 a = 1;
   int32 b = 2;
 }
-
-
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
-}
-
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}
-
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
-}
-
-enum PbUnits {
-    //default unit
-    NoUnits = 0;
-
-    // SI units
-    angstrom    = 1;
-    arcmin      = 2;
-    arcsec      = 3;
- }

@@ -1,11 +1,15 @@
-scalaVersion := "2.11.7"
+import scalapb.compiler.Version.scalapbVersion
+
+scalaVersion := "2.11.12"
 
 scalacOptions in ThisBuild ++= Seq("-Xfatal-warnings", "-Xlint")
 
+enablePlugins(ScalaNativePlugin)
+
 PB.targets in Compile := Seq(
-  PB.gens.java -> (sourceManaged in Compile).value,
-  scalapb.gen(singleLineToString = true, javaConversions=true) -> (sourceManaged in Compile).value
+  scalapb.gen() -> (sourceManaged in Compile).value
 )
 
-libraryDependencies += "com.trueaccord.scalapb" %% "scalapb-runtime-grpc" % "0.6.7"
-
+libraryDependencies ++= Seq(
+  "com.thesamet.scalapb" %%% "scalapb-runtime" % scalapbVersion
+)
